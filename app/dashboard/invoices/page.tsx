@@ -13,7 +13,11 @@ export default async function Page() {
 				<h1 className={`${lusitana.className} text-2xl`}>Invoices</h1>
 			</div>
 			<div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-				<Search placeholder="Search invoices..." />
+				{/* TODO: 仕様を確認 */}
+				{/* Searchで`useSearchParams`を使っているなら`Suspanse`でラップしろというビルドエラーが出る */}
+				<Suspense fallback={<div>Loading...</div>}>
+					<Search placeholder="Search invoices..." />
+				</Suspense>
 				<CreateInvoice />
 			</div>
 			{/*  <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
