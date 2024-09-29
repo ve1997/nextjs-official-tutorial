@@ -40,6 +40,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
 		status: formData.get("status"),
 	});
 
+	console.log("validatedFields", validatedFields);
+
 	// If form validation fails, return errors early. Otherwise, continue.
 	// フォームのバリデーションに失敗したら、エラーを早めに返す。 そうでなければ続行する。
 	if (!validatedFields.success) {
