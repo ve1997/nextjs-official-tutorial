@@ -1,5 +1,17 @@
 import "@/app/ui/global.css";
 import { inter } from "@/app/ui/fonts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: {
+		// テンプレート内の`%s`は各ページの`metadata.title`で置換される
+		// 特定のページに`metadata.title`がない場合は`metadata.title.default`が使われる
+		template: "%s | Acme Dashboard",
+		default: "Acme Dashboard",
+	},
+	description: "The official Next.js Learn Dashboard built with App Router.",
+	metadataBase: new URL("https://next-learn-dashboard.vercel.sh"),
+};
 
 export default function RootLayout({
 	children,
