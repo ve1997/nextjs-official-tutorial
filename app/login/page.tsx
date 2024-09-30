@@ -1,6 +1,10 @@
 import AcmeLogo from "@/app/ui/acme-logo";
+import { Button } from "@/app/ui/button";
 import LoginForm from "@/app/ui/login-form";
+import { signIn } from "@/auth";
+import GoogleLogo from "@/public/web_neutral_sq_SI.svg";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
 	title: "Login",
@@ -16,6 +20,16 @@ export default function LoginPage() {
 					</div>
 				</div>
 				<LoginForm />
+				<form
+					action={async () => {
+						"use server";
+						await signIn("google");
+					}}
+				>
+					<button>
+						<Image src={GoogleLogo} width={200} alt="Google Logo" />
+					</button>
+				</form>
 			</div>
 		</main>
 	);
