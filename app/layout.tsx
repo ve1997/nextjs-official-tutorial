@@ -4,6 +4,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: {
+		// テンプレート内の`%s`は各ページの`metadata.title`で置換される
+		// 特定のページに`metadata.title`がない場合は`metadata.title.default`が使われる
 		template: "%s | Acme Dashboard",
 		default: "Acme Dashboard",
 	},
