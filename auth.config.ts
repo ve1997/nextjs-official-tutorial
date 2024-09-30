@@ -1,13 +1,6 @@
 import type { NextAuthConfig } from "next-auth";
 
 export const authConfig = {
-	pages: {
-		/**
-		 * Redirect to a custom login page instead of the NextAuth default page.
-		 * NextAuthのデフォルトページではなくカスタムログインページにリダイレクトする
-		 */
-		signIn: "/login",
-	},
 	callbacks: {
 		authorized({ auth, request: { nextUrl } }) {
 			const isLoggedIn = !!auth?.user;
